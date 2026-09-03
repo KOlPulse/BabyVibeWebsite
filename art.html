@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$BabyVibe Video Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="art-page">
+    <!-- Terugknop naar de hoofdpagina -->
+<a href="index.html" class="back-button">← Back to Home</a>
+    
+    <!-- De doorlopende videobanner onderaan -->
+<div class="video-banner-container">
+  <div class="video-banner-track">
+    <!-- Set 1 (Jouw 6 video's) -->
+    <video class="banner-video" src="vid1.mp4" muted loop autoplay playsinline></video>
+    <video class="banner-video" src="vid2.mp4" muted loop autoplay playsinline></video>
+    <video class="banner-video" src="vid3.mp4" muted loop autoplay playsinline></video>
+    <div class="banner-video-wrapper">
+  <iframe src="https://www.youtube.com/embed/K6gfijDJLS4?autoplay=1&mute=1&loop=1&playlist=K6gfijDJLS4" frameborder="0" allow="autoplay"></iframe>
+</div>
+    <video class="banner-video" src="vid5.mp4" muted loop autoplay playsinline></video>
+    <iframe src="https://www.youtube.com/embed/IwgW2Z4GLCY?autoplay=1&mute=1&loop=1&playlist=JOUW_YOUTUBE_VIDEO_ID" 
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+    
+    <!-- Set 2 (Exact dezelfde 6 video's als kopie voor de naadloze loop) -->
+    <video class="banner-video" src="vid1.mp4" muted loop autoplay playsinline></video>
+    <video class="banner-video" src="vid2.mp4" muted loop autoplay playsinline></video>
+    <video class="banner-video" src="vid3.mp4" muted loop autoplay playsinline></video>
+    <div class="banner-video-wrapper">
+  <iframe src="https://www.youtube.com/embed/K6gfijDJLS4?autoplay=1&mute=1&loop=1&playlist=K6gfijDJLS4" frameborder="0" allow="autoplay"></iframe>
+</div>
+    <video class="banner-video" src="vid5.mp4" muted loop autoplay playsinline></video>
+    <div class="banner-video-wrapper">
+  <iframe src="https://www.youtube.com/embed/IwgW2Z4GLCY?autoplay=1&mute=1&loop=1&playlist=JOUW_YOUTUBE_VIDEO_ID" 
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+  </div>
+</div>
+
+    <!-- De onzichtbare pop-up (modal) voor het vergroten -->
+    <div id="videoModal" class="modal">
+      <span class="close-modal">&times;</span>
+      <video id="modalVideo" controls></video>
+    </div>
+
+    <script>
+    const bannerVideos = document.querySelectorAll('.banner-video');
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const closeModal = document.querySelector('.close-modal');
+
+    bannerVideos.forEach(video => {
+      video.addEventListener('click', function() {
+        modal.style.display = 'flex';
+        modalVideo.src = this.src;
+        modalVideo.play();
+      });
+    });
+
+    const sluitVideo = () => {
+      modal.style.display = 'none';
+      modalVideo.pause();
+      modalVideo.src = '';
+    };
+
+    closeModal.addEventListener('click', sluitVideo);
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        sluitVideo();
+      }
+    });
+    </script>
+</body>
+</html>

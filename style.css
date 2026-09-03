@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('babyvibeachtergrond.jpg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000;
+    min-height: 100vh;
+    overflow: hidden; 
+    
+    /* Zorgt voor het bewegende (inzoomen) effect van de achtergrond */
+    animation: moveBackground 20s infinite alternate ease-in-out;
+}
+
+/* De animatie voor de achtergrond */
+@keyframes moveBackground {
+    0% { background-size: 100%; }
+    100% { background-size: 115%; }
+}
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Zet de knoppen onderaan */
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+/* Styling van de knoppen */
+.nav-buttons {
+    display: flex;
+    gap: 20px; /* Ruimte tussen de knoppen */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.vibe-button {
+    text-decoration: none;
+    color: #00fffb;
+    text-shadow: 0 0 5px currentColor;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 15px 30px;
+    border: 2px solid #00e5ff; /* Fel neon cyaan */
+    border-radius: 30px;
+    background: rgba(20, 0, 40, 0.7);
+    
+    /* Dubbele gloed voor een sterker effect */
+    box-shadow: 0 0 10px #00e5ff, 0 0 20px rgba(0, 229, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.vibe-button:hover {
+    background: rgba(0, 229, 255, 0.15); /* Subtiele blauwe achtergrond bij hover */
+    
+    /* Drievoudige, intense gloed als je er met de muis over gaat */
+    box-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff, 0 0 50px rgba(0, 229, 255, 0.8);
+    transform: scale(1.1); 
+}
+
+/* --- STYLING VOOR DE ART PAGINA --- */
+.Art-page {
+    /* Vul hier de naam in van je vette nieuwe achtergrond! */
+    background-image: url('babyvibeart.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* We zetten scrollen aan, want je krijgt vast veel video's */
+    overflow-y: auto; 
+    animation: none; /* Zet de inzoom-animatie uit op deze pagina */
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.gallery-title {
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 3em;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff;
+}
+
+.video-grid {
+    display: grid;
+    /* Dit is magie: het zorgt dat video's netjes naast elkaar staan, 
+       en onder elkaar op mobiel! */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.video-item video {
+    width: 100%;
+    border: 3px solid #00e5ff; /* Cyaan randje om de video's */
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+    background-color: #000;
+}
+
+/* Container vast onderaan het scherm */
+.video-banner-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.8);
+  padding: 15px 0;
+  z-index: 100;
+  overflow: hidden; /* Verbergt de video's die buiten het scherm vallen */
+}
+
+/* De bewegende 'lopende band' */
+.video-banner-track {
+  display: flex;
+  gap: 15px;
+  width: max-content;
+  /* We gebruiken 'flex-start' en zorgen dat hij precies over de helft van de breedte schuift */
+  animation: scrollBanner 30s linear infinite;
+}
+
+.video-banner-track:hover {
+  animation-play-state: paused;
+}
+
+/* De animatie schuift nu precies tot de helft (waar de kopie begint) */
+@keyframes scrollBanner {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Miniatuur video's in de banner */
+.banner-video {
+  height: 120px;
+  border: 2px solid #00e5ff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  object-fit: cover;
+}
+
+.banner-video:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
+}
+
+/* Modal (Pop-up) styling */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+}
+
+/* De grote video in het midden van de pop-up */
+#modalVideo {
+  max-width: 90%;
+  max-height: 90%;
+  border: 4px solid #00e5ff;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+}
+
+/* Sluitknop van de pop-up */
+.close-modal {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #00e5ff;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  color: #ff00aa;
+}
+
+/* Styling voor de terugknop op de Art pagina */
+.back-button {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    text-decoration: none;
+    color: #00fffb;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 20px;
+    border: 2px solid #00e5ff;
+    border-radius: 20px;
+    background: rgba(20, 0, 40, 0.8);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    z-index: 200; /* Zorgt dat hij altijd bovenop staat */
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: #00e5ff;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 1);
+    transform: scale(1.05);
+}

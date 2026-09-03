@@ -324,45 +324,30 @@ body.vc-page {
   background-color: #000;
   color: white;
   font-family: sans-serif;
+}
+
+/* --- LOPENDE AUDIO BANNER ONDERAAN --- */
+.audio-banner-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.audio-banner-track {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-/* --- HET NEON KADER IN HET MIDDEN --- */
-.vc-container {
-  background: rgba(0, 0, 0, 0.8);
-  padding: 40px;
-  border-radius: 15px;
-  border: 2px solid #00fffb;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
-  text-align: center;
-  max-width: 600px;
-  width: 90%;
-  margin-top: 50px;
-}
-
-.vc-container h1 {
-  color: #00fffb;
-  margin-top: 0;
-  text-shadow: 0 0 10px #00fffb;
-}
-
-.recording-placeholder {
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px dashed #00fffb;
-  border-radius: 10px;
-}
-
-/* --- MP3 AUDIO GRID OPMAAK --- */
-.audio-grid {
-  display: flex;
-  flex-wrap: wrap; /* Zorgt dat ze naar de volgende regel gaan als het scherm vol is */
   gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
+  width: max-content;
+  animation: scrollBanner 30s linear infinite;
+}
+
+/* Pauzeer het scrollen als de muis erop staat */
+.audio-banner-track:hover {
+  animation-play-state: paused;
 }
 
 .audio-card {
@@ -373,13 +358,7 @@ body.vc-page {
   width: 250px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-/* Laat de kaart iets oplichten en omhoog komen als je er met de muis overheen gaat */
-.audio-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px #00fffb;
+  flex-shrink: 0; 
 }
 
 .audio-image {
@@ -398,7 +377,6 @@ body.vc-page {
   text-shadow: 0 0 5px #00fffb;
 }
 
-/* Stijl de standaard mp3-speler iets strakker */
 audio {
   width: 100%;
   height: 40px;

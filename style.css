@@ -387,6 +387,25 @@ audio {
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */
 @media (max-width: 768px) {
+
+  /* Fix voor de achtergrond op mobiel: trek de foto naar boven */
+  body {
+    background-position: top center !important;
+    min-height: 100vh;
+  }
+
+  /* Zet alle knoppen op het startscherm onder elkaar in plaats van naast elkaar */
+  .vibe-button {
+    width: 90% !important; /* Maak ze lekker breed op mobiel */
+    max-width: 320px;
+    margin: 10px auto !important; /* Zorg voor ruimte boven en onder elke knop */
+    font-size: 14px;
+    white-space: normal; /* Zorgt dat superlange tekst netjes op twee regels afbreekt als dat nodig is */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
   
   /* Maak de muziekkaarten kleiner en compacter */
   .audio-card {

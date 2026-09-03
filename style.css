@@ -388,10 +388,13 @@ audio {
    ========================================= */
 @media (max-width: 768px) {
 
-  /* Fix voor de achtergrond op mobiel: trek de foto naar boven */
-  body {
+ /* Fix voor de zwarte ruimtes: dwing de foto over het hele scherm */
+  html, body {
+    min-height: 100vh !important;
+    background-size: cover !important;
     background-position: top center !important;
-    min-height: 100vh;
+    background-attachment: scroll !important; /* Schakelt de mobiele glitch uit */
+    background-repeat: no-repeat !important;
   }
 
   /* Zet alle knoppen op het startscherm onder elkaar in plaats van naast elkaar */

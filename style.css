@@ -382,3 +382,47 @@ audio {
   height: 40px;
   outline: none;
 }
+
+/* =========================================
+   MOBIELE VERSIE (Alleen voor telefoons)
+   ========================================= */
+@media (max-width: 768px) {
+  
+  /* Maak de muziekkaarten kleiner en compacter */
+  .audio-card {
+    width: 180px;
+    padding: 10px;
+  }
+  
+  .audio-image {
+    height: 100px; /* Kleinere afbeeldingen */
+  }
+  
+  .audio-card h3 {
+    font-size: 14px;
+  }
+
+  /* Maak de videobanner (Video Room) kleiner op mobiel */
+  .banner-item {
+    width: 220px !important;
+    height: 125px !important;
+  }
+
+  /* Verklein de grote teksten in het midden */
+  .vc-container {
+    padding: 20px;
+    margin-top: 80px; /* Ruimte maken voor de knop */
+  }
+
+  .vc-container h1 {
+    font-size: 24px;
+  }
+
+  /* Maak de terugknop subtieler zodat hij niet in de weg zit */
+  .back-button {
+    top: 10px;
+    left: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}

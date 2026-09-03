@@ -355,3 +355,52 @@ body.vc-page {
   border: 1px dashed #00fffb;
   border-radius: 10px;
 }
+
+/* --- MP3 AUDIO GRID OPMAAK --- */
+.audio-grid {
+  display: flex;
+  flex-wrap: wrap; /* Zorgt dat ze naar de volgende regel gaan als het scherm vol is */
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.audio-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #00fffb;
+  border-radius: 12px;
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Laat de kaart iets oplichten en omhoog komen als je er met de muis overheen gaat */
+.audio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #00fffb;
+}
+
+.audio-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.audio-card h3 {
+  color: white;
+  font-size: 16px;
+  margin: 10px 0;
+  text-shadow: 0 0 5px #00fffb;
+}
+
+/* Stijl de standaard mp3-speler iets strakker */
+audio {
+  width: 100%;
+  height: 40px;
+  outline: none;
+}

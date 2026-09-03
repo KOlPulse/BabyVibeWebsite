@@ -112,37 +112,34 @@ body {
 
 /* Container vast onderaan het scherm */
 .video-banner-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  background: rgba(10, 10, 10, 0.8);
-  padding: 15px 0;
-  z-index: 100;
-  overflow: hidden; /* Verbergt de video's die buiten het scherm vallen */
+  overflow: hidden;
+  margin-top: 20px;
+  padding: 10px 0;
 }
 
-/* De bewegende 'lopende band' */
 .video-banner-track {
   display: flex;
   gap: 15px;
   width: max-content;
-  /* We gebruiken 'flex-start' en zorgen dat hij precies over de helft van de breedte schuift */
   animation: scrollBanner 30s linear infinite;
 }
 
-.video-banner-track:hover {
-  animation-play-state: paused;
+/* Deze regel pakt nu alle video's en iframes aan */
+.banner-item {
+  width: 320px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00fffb, 0 0 20px rgba(0, 229, 255, 0.5);
+  flex-shrink: 0;
+  border: none;
 }
 
-/* De animatie schuift nu precies tot de helft (waar de kopie begint) */
 @keyframes scrollBanner {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Miniatuur video's in de banner */

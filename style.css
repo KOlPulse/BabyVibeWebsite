@@ -807,6 +807,75 @@ audio {
 }
 
 /* =========================================
+   THE LORE PAGINA - SCROLLING TEXT DESIGN
+   ========================================= */
+.lore-body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* Zorgt dat de pagina zelf niet scrollt, de tekst doet het werk */
+  background: transparent !important;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+/* Container aan de linkerkant */
+.lore-scroll-container {
+  position: absolute;
+  left: 50px;
+  top: 100px;
+  bottom: 50px;
+  width: 550px; /* Mooie breedte voor je lap tekst */
+  max-width: 90vw;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  border: 2px solid #00ff88;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.4), inset 0 0 15px rgba(0, 255, 136, 0.1);
+  overflow: hidden; /* Verbergt de tekst zodra deze boven/onder buiten het kader loopt */
+  box-sizing: border-box;
+}
+
+/* Het element dat automatisch van onder naar boven beweegt (of andersom) */
+.lore-scroller {
+  position: absolute;
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  animation: scrollLore 35s linear infinite; /* Pas hier de snelheid aan: 35s is langzaam en leesbaar */
+}
+
+/* Pauzeer de beweging als je met je muis over het tekstblok hangt, zodat je even rustig kunt lezen */
+.lore-scroll-container:hover .lore-scroller {
+  animation-play-state: paused;
+}
+
+.lore-text-block h2 {
+  color: #00ff88;
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+}
+
+.lore-text-block p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #ddd;
+  margin-bottom: 25px;
+}
+
+/* De automatische bewegings-animatie van onder naar boven */
+@keyframes scrollLore {
+  0% {
+    transform: translateY(100%); /* Start helemaal onderaan buiten het kader */
+  }
+  100% {
+    transform: translateY(-100%); /* Schuift langzaam door naar boven */
+  }
+}
+
+/* =========================================
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */
 @media (max-width: 768px) {

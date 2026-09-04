@@ -436,14 +436,15 @@ audio {
   background-size: cover;
   font-family: sans-serif;
   color: #fff;
+  overflow-y: auto !important; /* Forceert de scrollbalk aan */
 }
 
 .chart-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Laat hem los uit het midden, zodat je kunt scrollen */
   min-height: 100vh;
-  padding: 80px 20px 40px 20px; /* Ruimte bovenin voor de terugknop */
+  padding: 120px 20px 80px 20px; /* Zorgt dat hij iets lager begint */
   box-sizing: border-box;
 }
 
@@ -518,7 +519,7 @@ audio {
 /* Insluiten van de DexScreener grafiek */
 .iframe-container {
   width: 100%;
-  height: 480px;
+  height: 380px; /* Hoogte verlaagd zodat hij compacter is */
 }
 
 .iframe-container iframe {

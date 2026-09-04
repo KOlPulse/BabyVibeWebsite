@@ -383,10 +383,48 @@ audio {
   outline: none;
 }
 
+/* --- GOUDEN ANONCOIN KNOP --- */
+.gold-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 90px;
+  height: 90px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 100;
+}
+
+.gold-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 1);
+}
+
 /* =========================================
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */
 @media (max-width: 768px) {
+
+/* Maak de gouden knop kleiner op telefoons */
+  .gold-button {
+    width: 60px;
+    height: 60px;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+  }
+
 
  /* Fix voor de zwarte ruimtes: dwing de foto over het hele scherm */
   html, body {

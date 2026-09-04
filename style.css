@@ -425,9 +425,127 @@ audio {
 }
 
 /* =========================================
+   LIVE CHART PAGINA (Gouden Luxe Design)
+   ========================================= */
+.chart-body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Pas hieronder de naam aan naar jouw opgeslagen achtergrondafbeelding */
+  background: url('chart.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 80px 20px 40px 20px; /* Ruimte bovenin voor de terugknop */
+  box-sizing: border-box;
+}
+
+/* De Gouden Omlijsting */
+.gold-chart-box {
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(10, 10, 15, 0.88);
+  backdrop-filter: blur(10px);
+  border: 2px solid #ffd700;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.45), inset 0 0 15px rgba(255, 215, 0, 0.15);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.gold-chart-box:hover {
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.7), inset 0 0 20px rgba(255, 215, 0, 0.25);
+}
+
+/* Header boven de chart */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.15), rgba(0, 0, 0, 0.5));
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.chart-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: #ffd700;
+}
+
+/* Knipperend groen live bolletje */
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #00ff88;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ff88;
+  animation: pulse-live 1.5s infinite;
+}
+
+@keyframes pulse-live {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.chart-external-link {
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 13px;
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.chart-external-link:hover {
+  background: #ffd700;
+  color: #000;
+}
+
+/* Insluiten van de DexScreener grafiek */
+.iframe-container {
+  width: 100%;
+  height: 650px;
+}
+
+.iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* =========================================
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */
 @media (max-width: 768px) {
+
+  /* Mobiele aanpassingen voor de Live Chart */
+  .chart-wrapper {
+    padding: 70px 10px 20px 10px;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .iframe-container {
+    height: 520px; /* Precies de juiste hoogte voor een telefoonscherm */
+  }
 
 /* Maak de gouden knop netjes passend op telefoons */
   .gold-button {

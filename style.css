@@ -224,7 +224,7 @@ body {
 
 /* --- ACHTERGROND VOOR DE VIDEO ROOM --- */
 body.art-page {
-  background-image: url('babyvibeart.jpg'); 
+  background-image: url('.jpg'); 
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -315,7 +315,7 @@ body.art-page {
 
 /* --- ACHTERGROND VOOR DE VC PAGINA --- */
 body.vc-page {
-  background-image: url('vc.jpg'); 
+  background-image: url('.jpg'); 
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -432,7 +432,7 @@ audio {
   padding: 0;
   min-height: 100vh;
   /* Pas hieronder de naam aan naar jouw opgeslagen achtergrondafbeelding */
-  background: url('chart.jpg') no-repeat center center fixed;
+  background: url('.jpg') no-repeat center center fixed;
   background-size: cover;
   font-family: sans-serif;
   color: #fff;
@@ -535,7 +535,7 @@ audio {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: url('buyroom.jpg') no-repeat center center fixed;
+  background: url('.jpg') no-repeat center center fixed;
   background-size: cover;
   font-family: sans-serif;
   color: #fff;
@@ -596,7 +596,7 @@ audio {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: url('info.jpg') no-repeat center center fixed;
+  background: url('.jpg') no-repeat center center fixed;
   background-size: cover;
   font-family: sans-serif;
   color: #fff;
@@ -744,6 +744,17 @@ audio {
   height: 100vh;
   object-fit: cover;
   z-index: -999; /* Zorgt dat de video netjes achter al je knoppen blijft draaien */
+}
+
+/* Universele geluidloze achtergrondvideo voor alle pagina's */
+.page-bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -999; /* Dwingt de video om muisstil achter alle inhoud en glazen boxen te blijven */
 }
 
 /* =========================================

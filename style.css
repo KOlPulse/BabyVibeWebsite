@@ -623,4 +623,18 @@ audio {
     padding: 8px 15px;
     font-size: 14px;
   }
+
+  /* Forceer soepel scrollen op de Live Chart pagina voor mobiel */
+  html, .chart-body {
+    overflow-y: auto !important;
+    height: auto !important; 
+    -webkit-overflow-scrolling: touch; /* Zorgt voor heerlijk soepel scrollen op iPhones */
+  }
+
+  .chart-wrapper {
+    height: auto !important;
+    min-height: 100vh;
+    padding-bottom: 50px; /* Geeft een beetje extra ruimte onderaan, zodat je makkelijk voorbij de grafiek swipet */
+  }
+
 }

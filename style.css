@@ -778,6 +778,17 @@ audio {
   z-index: -999; /* Dwingt de video om muisstil achter alle inhoud en glazen boxen te blijven */
 }
 
+/* Zorgt dat de YouTube banner-items klikbaar worden binnen de animatie */
+.banner-item-wrapper {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.banner-item-wrapper iframe {
+  pointer-events: none; /* Zorgt dat YouTube de muisklik niet blokkeert */
+}
+
 /* =========================================
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */

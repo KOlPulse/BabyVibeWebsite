@@ -789,6 +789,23 @@ audio {
   pointer-events: none; /* Zorgt dat YouTube de muisklik niet blokkeert */
 }
 
+/* Container rondom de YouTube banner-item */
+.banner-item-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Onzichtbare klik-laag die bovenop de YouTube video ligt */
+.click-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 10;
+}
+
 /* =========================================
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */

@@ -574,6 +574,12 @@ audio {
     background-attachment: fixed !important; /* Zorgt dat de achtergrond netjes blijft staan tijdens het scrollen */
   }
 
+  .main-container {
+    justify-content: flex-start !important;
+    padding-top: 100px !important; /* Zorgt dat het onder de gouden knop start */
+    padding-bottom: 50px !important; /* Extra ruimte onderaan bij het scrollen */
+  }
+
   /* Zet alle knoppen op het startscherm onder elkaar in plaats van naast elkaar */
   .vibe-button {
     width: 90% !important; /* Maak ze lekker breed op mobiel */

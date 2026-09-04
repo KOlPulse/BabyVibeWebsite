@@ -16,6 +16,27 @@ body {
     animation: moveBackground 20s infinite alternate ease-in-out;
 }
 
+/* Zorg dat de basis overal transparant is zodat de video zichtbaar blijft */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: transparent !important;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+/* Zorg dat de video altijd over het gehele scherm vast blijft staan, ook tijdens het scrollen */
+.page-bg-video, .bg-video {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: cover !important;
+  z-index: -9999 !important;
+}
+
 /* De animatie voor de achtergrond */
 @keyframes moveBackground {
     0% { background-size: 100%; }

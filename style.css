@@ -566,10 +566,10 @@ audio {
 
 .buy-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* Verplaatst het hele blok naar rechts */
   align-items: flex-start;
   min-height: 100vh;
-  padding: 140px 20px 50px 20px; /* Van 100px naar 140px gezet voor dezelfde nette hoogte */
+  padding: 140px 40px 50px 20px; /* Rechts wat meer ruimte (40px) voor een strakke marge */
   box-sizing: border-box;
 }
 

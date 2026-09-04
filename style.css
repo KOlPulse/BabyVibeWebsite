@@ -609,7 +609,7 @@ audio {
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  padding: 100px 20px 50px 20px;
+  padding: 140px 20px 50px 20px; /* Van 100px naar 140px gezet zodat hij lager komt */
   box-sizing: border-box;
 }
 

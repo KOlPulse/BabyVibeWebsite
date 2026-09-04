@@ -24,20 +24,21 @@
     </div>
   </div>
 
- <!-- Het officiële script voor de Solana Swap -->
-<script src="https://terminal.jup.ag/main-v3.js"></script>
+<!-- Het officiële script voor de Solana Swap -->
+<script src="https://terminal.jup.ag/main-v3.js" onload="initJupiter()"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  function initJupiter() {
     window.Jupiter.init({
       displayMode: "integrated",
       integratedTargetId: "jupiter-terminal",
+      endpoint: "https://rpc.ankr.com/solana", /* Een stabielere publieke connectie */
       strictTokenList: false,
       formProps: {
         initialOutputMint: "54g2GnhV2mcheYD7Rvdt6MWniLdUsXQKeVNz5KZhdoge",
         initialInputMint: "So11111111111111111111111111111111111111112",
       },
     });
-  });
+  }
 </script>
 
 </body>

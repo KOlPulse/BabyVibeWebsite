@@ -24,23 +24,25 @@
     </div>
   </div>
 
-<!-- 1. Eerst de instellingen laden -->
-<script>
-  function initJupiter() {
-    if (window.Jupiter) {
-      window.Jupiter.init({
-        displayMode: "integrated",
-        integratedTargetId: "jupiter-terminal",
-        endpoint: "https://rpc.ankr.com/solana",
-        strictTokenList: false,
-        formProps: {
-          initialOutputMint: "54g2GnhV2mcheYD7Rvdt6MWniLdUsXQKeVNz5KZhdoge",
-          initialInputMint: "So11111111111111111111111111111111111111112",
-        },
-      });
-    }
-  }
-</script>
+<!-- 1. Eerst de instellingen laden (ZONDER custom RPC verbinding) -->
+    <script>
+      function initJupiter() {
+        if (window.Jupiter) {
+          window.Jupiter.init({
+            displayMode: "integrated",
+            integratedTargetId: "jupiter-terminal",
+            strictTokenList: false,
+            formProps: {
+              initialOutputMint: "54g2GnhV2mcheYD7Rvdt6MWniLdUsXQKeVNz5KZhdoge",
+              initialInputMint: "So11111111111111111111111111111111111111112",
+            },
+          });
+        }
+      }
+    </script>
+    
+    <!-- 2. Daarna pas het externe script inladen en starten -->
+    <script src="https://terminal.jup.ag/main-v3.js" onload="initJupiter()"></script>
 
 <!-- 2. Daarna pas het externe script inladen en starten -->
 <script src="https://terminal.jup.ag/main-v3.js" onload="initJupiter()"></script>

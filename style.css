@@ -529,6 +529,67 @@ audio {
 }
 
 /* =========================================
+   BUY ROOM PAGINA (Neon Groen Design)
+   ========================================= */
+.buy-body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: url('buyroom.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: sans-serif;
+  color: #fff;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+.buy-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 100px 20px 50px 20px;
+  box-sizing: border-box;
+}
+
+/* De Buy Box (Dark Glass met Neon Groen) */
+.buy-box {
+  width: 100%;
+  max-width: 440px; /* Precies breed genoeg voor de terminal */
+  background: rgba(10, 10, 15, 0.90);
+  backdrop-filter: blur(12px);
+  border: 2px solid #00ff88;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.4), inset 0 0 15px rgba(0, 255, 136, 0.1);
+  overflow: hidden;
+}
+
+.buy-header {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+  background: linear-gradient(180deg, rgba(0, 255, 136, 0.15), transparent);
+}
+
+.buy-header h2 {
+  margin: 0 0 8px 0;
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+  font-size: 24px;
+}
+
+.buy-header p {
+  margin: 0;
+  font-size: 14px;
+  color: #ddd;
+}
+
+#jupiter-terminal {
+  width: 100%;
+  min-height: 480px; /* Geeft genoeg ruimte voor de Jupiter widget */
+}
+
+/* =========================================
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */
 @media (max-width: 768px) {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$BabyVibe - Buy Room</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="buy-body">
+
+  <!-- Terugknop naar de homepage -->
+  <a href="index.html" class="back-button">← Back to Homepage</a>
+
+  <div class="buy-wrapper">
+    <!-- De Glazen Container met Neon Groene Rand -->
+    <div class="buy-box">
+      <div class="buy-header">
+        <h2>Buy $BabyVibe Direct</h2>
+        <p>Swap SOL for $BabyVibe instantly, with zero hassle.</p>
+      </div>
+      
+      <!-- Hier laadt de Jupiter Swap Terminal in -->
+      <div id="jupiter-terminal"></div>
+    </div>
+  </div>
+
+  <!-- Het officiële script voor de Solana Swap -->
+  <script src="https://terminal.jup.ag/main-v3.js"></script>
+  <script>
+    window.Jupiter.init({
+      displayMode: "integrated",
+      integratedTargetId: "jupiter-terminal",
+      strictTokenList: false,
+      formProps: {
+        initialOutputMint: "54g2GnhV2mcheYD7Rvdt6MWniLdUsXQKeVNz5KZhdoge",
+        initialInputMint: "So11111111111111111111111111111111111111112", /* SOL */
+      },
+    });
+  </script>
+
+</body>
+</html>

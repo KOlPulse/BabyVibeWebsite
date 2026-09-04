@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url('babyvibeachtergrond.jpg'); 
+    background-image: url('.jpg'); 
     background-position: center;
     background-repeat: no-repeat;
     background-color: #000;
@@ -733,6 +733,17 @@ audio {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* Achtergrond Video voor de Hoofdpagina */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -999; /* Zorgt dat de video netjes achter al je knoppen blijft draaien */
 }
 
 /* =========================================

@@ -564,13 +564,14 @@ audio {
   }
 
 
- /* Fix voor de zwarte ruimtes: dwing de foto over het hele scherm */
+ /* Fix voor de zwarte ruimtes én scrollen aanzetten op mobiel */
   html, body {
     min-height: 100vh !important;
+    height: auto !important; /* Zorgt dat de pagina langer mag worden dan 1 scherm */
+    overflow-y: auto !important; /* Zet de scrollbalk aan */
+    -webkit-overflow-scrolling: touch; /* Soepel swipen voor iPhones */
     background-size: cover !important;
-    background-position: top center !important;
-    background-attachment: scroll !important; /* Schakelt de mobiele glitch uit */
-    background-repeat: no-repeat !important;
+    background-attachment: fixed !important; /* Zorgt dat de achtergrond netjes blijft staan tijdens het scrollen */
   }
 
   /* Zet alle knoppen op het startscherm onder elkaar in plaats van naast elkaar */

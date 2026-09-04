@@ -383,32 +383,45 @@ audio {
   outline: none;
 }
 
-/* --- GOUDEN ANONCOIN KNOP --- */
+/* --- GOUDEN ANONCOIN KNOP (Premium Design) --- */
 .gold-button {
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 90px;
-  height: 90px;
-  background: rgba(0, 0, 0, 0.8);
+  background: linear-gradient(135deg, #111, #2a2200); /* Donkere achtergrond met subtiele gouden gloed */
   border: 2px solid #ffd700;
   color: #ffd700;
   display: flex;
+  flex-direction: column; /* Zet de tekst netjes onder elkaar */
   align-items: center;
   justify-content: center;
   text-align: center;
   text-decoration: none;
-  font-weight: bold;
   font-family: sans-serif;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 12px 20px; /* Maakt er een mooie klikbare rechthoek van */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2);
+  transition: all 0.3s ease;
   z-index: 100;
 }
 
+.gold-button strong {
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+.gold-subtext {
+  font-size: 11px;
+  color: #fff;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
 .gold-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 1);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), inset 0 0 15px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(135deg, #1a1a1a, #403300);
 }
 
 /* =========================================
@@ -416,13 +429,19 @@ audio {
    ========================================= */
 @media (max-width: 768px) {
 
-/* Maak de gouden knop kleiner op telefoons */
+/* Maak de gouden knop netjes passend op telefoons */
   .gold-button {
-    width: 60px;
-    height: 60px;
     top: 10px;
     right: 10px;
-    font-size: 12px;
+    padding: 8px 12px;
+  }
+  
+  .gold-button strong {
+    font-size: 14px;
+  }
+  
+  .gold-subtext {
+    font-size: 9px;
   }
 
 

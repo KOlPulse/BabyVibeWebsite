@@ -18,10 +18,9 @@
         <audio id="vibeAudio" preload="auto"></audio>
     </div>
 
-    <!-- Tracker Container -->
+   <!-- Tracker Container -->
     <div class="tracker-wrapper">
         <div class="tracker-box">
-            <!-- Pas 'logo.png' aan naar jouw eigen logo bestand! -->
             <img src="logo.png" alt="BabyVibe Logo" class="tracker-logo">
             
             <h2>My $BabyVibe Bag</h2>
@@ -38,6 +37,9 @@
                 <h3>Total Value:</h3>
                 <h1 id="totalValue" class="neon-text">$0.00</h1>
             </div>
+
+            <!-- De Installatie Knop (standaard verborgen tot de telefoon hem goedkeurt) -->
+            <button id="installAppBtn" class="vibe-button" style="display: none; width: 100%; margin-top: 25px; padding: 10px;">📲 Install as App</button>
         </div>
     </div>
 
@@ -48,18 +50,44 @@
         const valueDisplay = document.getElementById('totalValue');
         let currentPrice = 0;
 
-        // Laad opgeslagen tokens als de pagina opent
+        // 1. Koppel de Service Worker voor App Installatie
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').then(() => {
+                console.log("Service Worker Actief!");
+            });
+        }
+
+        // 2. Beheer de 'Install App' knop
+        let deferredPrompt;
+        const installBtn = document.getElementById('installAppBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'block'; // Laat de knop zien op Android!
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    installBtn.style.display = 'none';
+                }
+                deferredPrompt = null;
+            }
+        });
+
+        // 3. Koers Ophalen en Berekenen
         window.addEventListener('DOMContentLoaded', () => {
             const savedTokens = localStorage.getItem('babyVibeTokens');
             if (savedTokens) {
                 tokenInput.value = savedTokens;
             }
             fetchLivePrice();
-            // Update koers elke 10 seconden
             setInterval(fetchLivePrice, 10000);
         });
 
-        // Haal live koers op via Dexscreener
         async function fetchLivePrice() {
             try {
                 const response = await fetch('https://api.dexscreener.com/latest/dex/tokens/An9dC5p9ZqCg9LB4cKCBtLvoJCShpXrWw53xGZwyvroK');
@@ -69,20 +97,21 @@
                     currentPrice = parseFloat(data.pairs[0].priceUsd);
                     priceDisplay.innerText = "$" + currentPrice.toFixed(6);
                     calculateTotal();
+                } else {
+                    priceDisplay.innerText = "No pairs found";
                 }
             } catch (error) {
-                console.log("Kan koers niet ophalen", error);
+                priceDisplay.innerText = "Error loading data";
+                console.log("Fetch error:", error);
             }
         }
 
-        // Bereken totaal en sla aantal op in geheugen
         function calculateTotal() {
             const amount = parseFloat(tokenInput.value) || 0;
-            localStorage.setItem('babyVibeTokens', amount); // Slaat het op in de app
-            
+            localStorage.setItem('babyVibeTokens', amount); 
             const total = amount * currentPrice;
             valueDisplay.innerText = "$" + total.toFixed(2);
         }
     </script>
 </body>
-</html>
+</html> 

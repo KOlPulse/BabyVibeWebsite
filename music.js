@@ -1,57 +1,67 @@
-// Jouw afspeellijst (zorg dat deze bestanden in je map staan)
+// Zorg dat de playlist klopt met jouw mp3-bestanden in de map
 const playlist = [
   "nummer1.mp3",
   "nummer2.mp3",
   "nummer3.mp3"
 ];
 
+// Haal opgeslagen data op of begin vers
 let currentTrack = parseInt(localStorage.getItem('vibeTrack')) || 0;
 let isPlaying = localStorage.getItem('vibePlaying') === 'true';
 let savedTime = parseFloat(localStorage.getItem('vibeTime')) || 0;
 
-const audio = document.getElementById("vibeAudio");
-const btnText = document.getElementById("musicState");
+// Wacht tot de pagina volledig is geladen zodat de knoppen zeker bestaan
+window.addEventListener('DOMContentLoaded', () => {
+  const audio = document.getElementById("vibeAudio");
+  const btnText = document.getElementById("musicState");
 
-// Laad het opgeslagen nummer en de exacte seconde
-audio.src = playlist[currentTrack];
-audio.currentTime = savedTime;
+  if (!audio || !btnText) return;
 
-// Probeer direct verder te spelen als we naar een nieuwe pagina gaan
-if (isPlaying) {
-  audio.play().then(() => {
-    btnText.innerText = "⏸ Pause";
-  }).catch(() => {
-    // Als de browser het blokkeert, pas de tekst aan
-    btnText.innerText = "▶ Play";
-    isPlaying = false;
-  });
-}
-
-// Start of Pauzeer de muziek
-function toggleMusic() {
-  if (audio.paused) {
-    audio.play();
-    isPlaying = true;
-    btnText.innerText = "⏸ Pause";
-    localStorage.setItem('vibePlaying', 'true');
-  } else {
-    audio.pause();
-    isPlaying = false;
-    btnText.innerText = "▶ Play";
-    localStorage.setItem('vibePlaying', 'false');
-  }
-}
-
-// Bewaar de tijd elke seconde, zodat hij op een nieuwe pagina naadloos verder gaat
-audio.addEventListener('timeupdate', () => {
-  localStorage.setItem('vibeTime', audio.currentTime);
-});
-
-// Speel automatisch het volgende nummer af
-audio.onended = () => {
-  currentTrack = (currentTrack + 1) % playlist.length;
-  localStorage.setItem('vibeTrack', currentTrack);
-  localStorage.setItem('vibeTime', 0);
   audio.src = playlist[currentTrack];
-  audio.play();
-};
+  audio.currentTime = savedTime;
+
+  // Update de knop tekst op basis van de opgeslagen status
+  if (isPlaying) {
+    btnText.innerText = "⏸ Pause";
+    audio.play().catch(error => {
+      console.log("Browser blokkeerde automatische autoplay:", error);
+      btnText.innerText = "▶ Play";
+      isPlaying = false;
+      localStorage.setItem('vibePlaying', 'false');
+    });
+  } else {
+    btnText.innerText = "▶ Play";
+  }
+
+  // Klikfunctie gekoppeld aan de knop
+  window.toggleMusic = function() {
+    if (audio.paused) {
+      audio.play().then(() => {
+        isPlaying = true;
+        btnText.innerText = "⏸ Pause";
+        localStorage.setItem('vibePlaying', 'true');
+      }).catch(err => {
+        console.log("Afspelen mislukt:", err);
+      });
+    } else {
+      audio.pause();
+      isPlaying = false;
+      btnText.innerText = "▶ Play";
+      localStorage.setItem('vibePlaying', 'false');
+    }
+  };
+
+  // Bewaar de tijd elke seconde
+  audio.addEventListener('timeupdate', () => {
+    localStorage.setItem('vibeTime', audio.currentTime);
+  });
+
+  // Volgende nummer automatisch starten
+  audio.onended = () => {
+    currentTrack = (currentTrack + 1) % playlist.length;
+    localStorage.setItem('vibeTrack', currentTrack);
+    localStorage.setItem('vibeTime', 0);
+    audio.src = playlist[currentTrack];
+    audio.play();
+  };
+});

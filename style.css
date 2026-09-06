@@ -217,29 +217,29 @@ body {
   color: #ff00aa;
 }
 
-/* Styling voor de terugknop op de Art pagina */
+/* --- TERUGKNOP (Gouden ANONCOIN stijl) --- */
 .back-button {
-    position: fixed;
+    position: fixed; 
     top: 25px;
     left: 25px;
     text-decoration: none;
-    color: #00fffb;
+    color: #ffd700;
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 14px;
     padding: 10px 20px;
-    border: 2px solid #00e5ff;
+    border: 2px solid #ffd700;
     border-radius: 20px;
     background: rgba(20, 0, 40, 0.8);
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-    z-index: 200; /* Zorgt dat hij altijd bovenop staat */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    z-index: 200;
     transition: all 0.3s ease;
 }
 
 .back-button:hover {
-    background: #00e5ff;
+    background: #ffd700;
     color: #000;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 1);
     transform: scale(1.05);
 }
 

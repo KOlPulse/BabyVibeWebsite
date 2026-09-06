@@ -14,16 +14,17 @@
     Jouw browser ondersteunt geen video achtergronden.
   </video>
 
- <!-- Terugknop naar de homepage -->
-  <a href="index.html" class="back-button">← Back to Homepage</a>
+<!-- Bovenste knoppen container -->
+<div class="top-buttons-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+  
+  <button class="music-btn" onclick="toggleMusic()">
+    🎵 Let's Vibe: <span id="musicState">▶ Play</span>
+  </button>
+  <audio id="vibeAudio" preload="auto"></audio>
+</div>
 
-  <!-- Zwevende Muziekspeler -->
-  <div class="music-floater">
-    <button class="music-btn" onclick="toggleMusic()">
-      🎵 Let's Vibe: <span id="musicState">▶ Play</span>
-    </button>
-    <audio id="vibeAudio" preload="auto"></audio>
-  </div>
+
 
   <!-- Container voor de langzaam rollende lap tekst links -->
   <div class="lore-scroll-container">

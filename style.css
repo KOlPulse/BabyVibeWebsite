@@ -947,7 +947,7 @@ audio {
   text-shadow: 0 0 15px #ffd700;
 }
 
-/* --- CONTAINER VOOR LINKSE KNOPPEN (Desktop) --- */
+/* --- CONTAINER VOOR LINKSE KNOPPEN (Desktop Subpagina's) --- */
 .top-buttons-container {
   position: fixed;
   top: 25px;
@@ -958,16 +958,20 @@ audio {
   z-index: 200;
 }
 
-.top-buttons-container .back-button {
+/* Zorg dat de knoppen binnen de container losse flex-items worden */
+.top-buttons-container .back-button,
+.top-buttons-container .music-btn {
   position: static !important;
   top: auto !important;
   left: auto !important;
 }
 
-.music-floater {
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
+/* Voor de homepage waar alleen de muziekknop los staat */
+.music-floater-home {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  z-index: 200;
 }
 
 .music-btn {

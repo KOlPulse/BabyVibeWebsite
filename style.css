@@ -254,22 +254,7 @@ body.art-page {
   background-color: #000;
 }
 
-/* --- TERUGKNOP --- */
-.back-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: #00fffb;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-weight: bold;
-  border: 2px solid #00fffb;
-  padding: 10px 20px;
-  border-radius: 20px;
-  box-shadow: 0 0 10px #00fffb;
-  background: rgba(0,0,0,0.5);
-  z-index: 20;
-}
+
 
 /* --- DE LOPENDE VIDEO BANNER ONDERAAN --- */
 .video-banner-container {

@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BabyVibe Portfolio Tracker</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Deze regel koppelt de downloadbare app instellingen (zie stap 3) -->
     <link rel="manifest" href="manifest.json">
 </head>
 <body class="buy-body">
@@ -18,7 +16,7 @@
         <audio id="vibeAudio" preload="auto"></audio>
     </div>
 
-   <!-- Tracker Container -->
+    <!-- Tracker Container -->
     <div class="tracker-wrapper">
         <div class="tracker-box">
             <img src="logo.png" alt="BabyVibe Logo" class="tracker-logo">
@@ -28,17 +26,19 @@
                 <p>Live Price: <strong id="livePrice" class="neon-text">Loading...</strong></p>
             </div>
 
-            <div class="input-section">
-                <label for="tokenAmount">Your Token Amount:</label>
-                <input type="number" id="tokenAmount" placeholder="e.g. 1000000" oninput="calculateTotal()">
+            <div class="input-section" style="margin-top: 20px;">
+                <label for="tokenAmount" style="color: #aaa; margin-bottom: 8px; display: block;">Enter Your Token Amount:</label>
+                <input type="number" id="tokenAmount" placeholder="e.g. 15000000" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #00ff88; background: rgba(0,0,0,0.6); color: #fff; font-size: 16px; margin-bottom: 15px;">
+                
+                <!-- De nieuwe Calculate Knop -->
+                <button onclick="calculateTotal()" class="vibe-button" style="width: 100%; margin: 0; padding: 12px; font-size: 16px; border-radius: 10px;">📊 Calculate Value</button>
             </div>
 
-            <div class="total-value-box">
-                <h3>Total Value:</h3>
-                <h1 id="totalValue" class="neon-text">$0.00</h1>
+            <div class="total-value-box" style="background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 12px; padding: 15px; margin-top: 20px;">
+                <h3 style="margin: 0 0 10px 0;">Total Value:</h3>
+                <h1 id="totalValue" class="neon-text" style="margin: 0;">$0.00</h1>
             </div>
 
-            <!-- De Installatie Knop (standaard verborgen tot de telefoon hem goedkeurt) -->
             <button id="installAppBtn" class="vibe-button" style="display: none; width: 100%; margin-top: 25px; padding: 10px;">📲 Install as App</button>
         </div>
     </div>
@@ -50,21 +50,18 @@
         const valueDisplay = document.getElementById('totalValue');
         let currentPrice = 0;
 
-        // 1. Koppel de Service Worker voor App Installatie
+        // Service Worker voor de App
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').then(() => {
-                console.log("Service Worker Actief!");
-            });
+            navigator.serviceWorker.register('sw.js').catch(err => console.log("SW niet geladen:", err));
         }
 
-        // 2. Beheer de 'Install App' knop
         let deferredPrompt;
         const installBtn = document.getElementById('installAppBtn');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            installBtn.style.display = 'block'; // Laat de knop zien op Android!
+            installBtn.style.display = 'block';
         });
 
         installBtn.addEventListener('click', async () => {
@@ -78,7 +75,6 @@
             }
         });
 
-        // 3. Koers Ophalen en Berekenen
         window.addEventListener('DOMContentLoaded', () => {
             const savedTokens = localStorage.getItem('babyVibeTokens');
             if (savedTokens) {
@@ -96,16 +92,20 @@
                 if (data.pairs && data.pairs.length > 0) {
                     currentPrice = parseFloat(data.pairs[0].priceUsd);
                     priceDisplay.innerText = "$" + currentPrice.toFixed(6);
-                    calculateTotal();
+                    
+                    // Bereken direct als er al een opgeslagen bedrag staat bij het openen
+                    if (tokenInput.value) {
+                        calculateTotal();
+                    }
                 } else {
                     priceDisplay.innerText = "No pairs found";
                 }
             } catch (error) {
                 priceDisplay.innerText = "Error loading data";
-                console.log("Fetch error:", error);
             }
         }
 
+        // Wordt nu alleen geactiveerd via de nieuwe knop (en bij het laden)
         function calculateTotal() {
             const amount = parseFloat(tokenInput.value) || 0;
             localStorage.setItem('babyVibeTokens', amount); 
@@ -114,4 +114,4 @@
         }
     </script>
 </body>
-</html> 
+</html>

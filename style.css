@@ -1027,7 +1027,7 @@ audio {
   /* 2. Startscherm knoppen: compacter en 2 naast elkaar */
   .main-container {
     justify-content: flex-end !important;
-    padding-bottom: 40px !important;
+    padding-bottom: 60px !important;
   }
   .nav-buttons {
     display: flex;

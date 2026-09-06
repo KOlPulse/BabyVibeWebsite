@@ -984,48 +984,37 @@ audio {
     border-width: 1px !important;
   }
 
-  /* 3. De Lore Box: Meer ruimte voor de video eromheen */
+/* 3. De Lore Box: Veel kleiner maken voor zichtbaarheid video */
   .lore-scroll-container {
-    left: 5% !important;
-    width: 90% !important;
-    top: 12% !important;
-    bottom: 10% !important;
-    border-width: 1px !important;
-    border-radius: 15px !important;
+    left: 10% !important;
+    width: 80% !important;
+    top: 18% !important;
+    bottom: 15% !important;
+    border-radius: 12px !important;
   }
   .lore-scroller {
-    padding: 20px !important;
-  }
-  .lore-text-block h2 { font-size: 18px !important; margin-top: 10px !important; }
-  .lore-text-block p { font-size: 13px !important; line-height: 1.5 !important; margin-bottom: 12px !important; }
-
-  /* 4. Buy Room & Token Info: Compacter gecentreerd */
-  .buy-wrapper, .token-wrapper {
-    padding: 80px 0 30px 0 !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-  .buy-box, .token-box {
-    width: 90% !important;
-    max-width: 90% !important;
     padding: 15px !important;
-    border-width: 1px !important;
-    border-radius: 15px !important;
   }
-  .buy-header { padding: 10px !important; }
-  .buy-header h2, .token-header h2 { font-size: 20px !important; margin-bottom: 5px !important; }
+  .lore-text-block h2 { font-size: 16px !important; margin-top: 5px !important; }
+  .lore-text-block p { font-size: 12px !important; line-height: 1.4 !important; margin-bottom: 10px !important; }
+
+  /* 4. Buy Room, Token Info & Live Chart: Compacter en gecentreerd */
+  .buy-wrapper, .token-wrapper, .chart-wrapper {
+    padding: 110px 0 60px 0 !important; 
+    justify-content: flex-start !important; 
+  }
+  .buy-box, .token-box, .gold-chart-box {
+    width: 80% !important;
+    max-width: 80% !important;
+    padding: 15px !important;
+    margin: 0 auto !important; 
+    border-radius: 12px !important;
+  }
+  .buy-header h2, .token-header h2 { font-size: 18px !important; margin-bottom: 5px !important; }
   
-  /* 5. Live Chart: Box kleiner, iframe compacter */
-  .chart-wrapper {
-    padding: 80px 0 30px 0 !important;
-    justify-content: center !important;
-  }
-  .gold-chart-box {
-    width: 90% !important;
-    max-width: 90% !important;
-  }
+  /* 5. Iframe voor de chart compacter maken */
   .iframe-container {
-    height: 420px !important;
+    height: 380px !important;
   }
 
   /* 6. Bovenste knoppen verkleinen */

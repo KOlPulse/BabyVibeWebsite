@@ -53,21 +53,21 @@ body {
     padding-bottom: 50px;
 }
 
-/* Styling van de knoppen */
+/* Styling van de knoppen (Desktop) */
 .nav-buttons {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    max-width: 900px; /* Houdt de groep mooi compact bij elkaar */
+    margin: 0 auto;
 }
 
 .vibe-button {
-    /* Layout fixes zodat ze compact blijven en niet uitrekken */
-    width: auto !important;
-    flex: 0 1 auto;
-    
-    /* Jouw bestaande opmaak */
+    width: auto !important; /* Forceert de knop om strak om de tekst te krimpen */
+    flex: 0 1 auto !important;
     text-decoration: none;
     color: #ffd700;
     text-shadow: 0 0 5px currentColor;
@@ -78,8 +78,6 @@ body {
     border: 2px solid #ffd700; 
     border-radius: 30px;
     background: rgba(20, 0, 40, 0.7);
-    
-    /* Dubbele gouden gloed voor een sterker effect */
     box-shadow: 0 0 10px #ffd700, 0 0 20px rgba(255, 215, 0, 0.5);
     transition: all 0.3s ease;
 }

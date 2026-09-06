@@ -7,21 +7,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="buy-body">
-    <video autoplay muted loop playsinline class="page-bg-video">
-  <source src="buyroom.mp4" type="video/mp4">
-  Jouw browser ondersteunt geen video.
-</video>
+
+  <!-- Achtergrondvideo -->
+  <video autoplay muted loop playsinline class="page-bg-video">
+    <source src="buyroom.mp4" type="video/mp4">
+    Jouw browser ondersteunt geen video.
+  </video>
 
   <!-- Terugknop naar de homepage -->
   <a href="index.html" class="back-button">← Back to Homepage</a>
 
+  <!-- De hoofdcontainer die alles rechts uitlijnt -->
   <div class="buy-wrapper">
-    <!-- De Glazen Container met Neon Groene Rand -->
+    
+    <!-- De glazen box -->
     <div class="buy-box">
+      
+      <!-- De header boven de Jupiter terminal -->
       <div class="buy-header">
-        <h2>Buy $BabyVibe Direct</h2>
-        <p>Swap SOL for $BabyVibe instantly, with zero hassle.</p>
+        <h2>Buy $VIBECOIN</h2>
+        <p>Swap SOL for $VIBECOIN instantly</p>
+        
+        <!-- Hier staat je How to Buy knop perfect in het midden van de box -->
+        <button id="howToBuyBtn" class="vibe-button how-to-buy-btn">How to Buy ❓</button>
       </div>
+
+      <!-- Hieronder begint je id="jupiter-terminal" div... -->
       
       <!-- Hier laadt de Jupiter Swap Terminal in -->
       <div id="jupiter-terminal"></div>

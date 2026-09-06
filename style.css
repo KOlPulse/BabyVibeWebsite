@@ -877,6 +877,76 @@ audio {
   }
 }
 
+/* --- HOW TO BUY POP-UP --- */
+.how-to-buy-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.text-modal {
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(15px);
+  border: 2px solid #ffd700;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  position: relative;
+  text-align: left; /* Zorgt dat de lijst netjes links uitlijnt */
+}
+
+.text-modal h2 {
+  color: #ffd700;
+  margin-top: 0;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.text-modal ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.text-modal li {
+  margin-bottom: 15px;
+  font-size: 15px;
+  line-height: 1.6;
+  border-left: 2px solid #00ff88;
+  padding-left: 15px;
+}
+
+.text-modal a {
+  color: #00ff88;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.text-modal a:hover {
+  text-shadow: 0 0 8px #00ff88;
+}
+
+.close-text-modal {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #ffd700;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-text-modal:hover {
+  color: #fff;
+  text-shadow: 0 0 15px #ffd700;
+}
+
 /* =========================================
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */

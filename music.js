@@ -5,10 +5,11 @@ const playlist = [
   "nummer3.mp3"
 ];
 
-// Laad opgeslagen status bij openen van de pagina
-let currentTrack = parseInt(localStorage.getItem('vibeTrack')) || 0;
-let isPlaying = localStorage.getItem('vibePlaying') === 'true';
-let savedTime = parseFloat(localStorage.getItem('vibeTime')) || 0;
+// Gebruik sessionStorage zodat het onthoudt tijdens het klikken op pagina's, 
+// maar opnieuw begint zodra je de browser sluit en later terugkomt.
+let currentTrack = parseInt(sessionStorage.getItem('vibeTrack')) || 0;
+let isPlaying = sessionStorage.getItem('vibePlaying') === 'true';
+let savedTime = parseFloat(sessionStorage.getItem('vibeTime')) || 0;
 
 // Zorg dat het audio element direct wordt ingesteld zodra de pagina laadt
 window.addEventListener('DOMContentLoaded', () => {
@@ -26,20 +27,20 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log("Autoplay geblokkeerd:", err);
         if (stateSpan) stateSpan.innerText = "▶ Play";
         isPlaying = false;
-        localStorage.setItem('vibePlaying', 'false');
+        sessionStorage.setItem('vibePlaying', 'false');
       });
     }
 
-    // Bewaar de huidige seconde elke keer dat de tijd update
+    // Bewaar de huidige seconde in de sessie
     audio.addEventListener('timeupdate', () => {
-      localStorage.setItem('vibeTime', audio.currentTime);
+      sessionStorage.setItem('vibeTime', audio.currentTime);
     });
 
     // Ga automatisch door naar het volgende nummer als de huidige afgelopen is
     audio.onended = () => {
       currentTrack = (currentTrack + 1) % playlist.length;
-      localStorage.setItem('vibeTrack', currentTrack);
-      localStorage.setItem('vibeTime', 0);
+      sessionStorage.setItem('vibeTrack', currentTrack);
+      sessionStorage.setItem('vibeTime', 0);
       audio.src = playlist[currentTrack];
       audio.play();
     };
@@ -56,7 +57,6 @@ window.toggleMusic = function() {
     return;
   }
 
-  // Als er om een of andere reden geen src is, zet hem op de playlist
   if (!audio.src || audio.src === window.location.href) {
     audio.src = playlist[currentTrack];
   }
@@ -64,7 +64,7 @@ window.toggleMusic = function() {
   if (audio.paused) {
     audio.play().then(() => {
       if (stateSpan) stateSpan.innerText = "⏸ Pause";
-      localStorage.setItem('vibePlaying', 'true');
+      sessionStorage.setItem('vibePlaying', 'true');
     }).catch(error => {
       console.log("Browser blokkeerde afspelen:", error);
       alert("Klik nogmaals ergens op de pagina om muziek toe te staan!");
@@ -72,6 +72,6 @@ window.toggleMusic = function() {
   } else {
     audio.pause();
     if (stateSpan) stateSpan.innerText = "▶ Play";
-    localStorage.setItem('vibePlaying', 'false');
+    sessionStorage.setItem('vibePlaying', 'false');
   }
 };

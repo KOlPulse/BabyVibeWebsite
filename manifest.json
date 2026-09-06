@@ -1,0 +1,21 @@
+{
+  "name": "BabyVibe App",
+  "short_name": "BabyVibe",
+  "start_url": "/tracker.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00ff88",
+  "description": "Live BabyVibe koers en portfolio tracker",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

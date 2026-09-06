@@ -1022,6 +1022,84 @@ audio {
 }
 
 /* =========================================
+   PORTFOLIO TRACKER PAGINA
+   ========================================= */
+.tracker-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px 20px 50px 20px;
+    box-sizing: border-box;
+}
+
+.tracker-box {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(10, 10, 15, 0.90);
+    backdrop-filter: blur(12px);
+    border: 2px solid #00ff88;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.4), inset 0 0 15px rgba(0, 255, 136, 0.1);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.tracker-logo {
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00ff88;
+    margin-bottom: 15px;
+    border: 2px solid #00ff88;
+}
+
+.tracker-box h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.neon-text {
+    color: #00ff88;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+}
+
+.input-section {
+    margin: 25px 0;
+    text-align: left;
+}
+
+.input-section label {
+    display: block;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.input-section input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00ff88;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input-section input:focus {
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.total-value-box {
+    background: rgba(0, 255, 136, 0.05);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* =========================================
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */
 @media (max-width: 768px) {

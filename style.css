@@ -1026,9 +1026,6 @@ audio {
 /* =========================================
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */
-/* =========================================
-   MOBIELE VERSIE (Alleen voor telefoons)
-   ========================================= */
 @media (max-width: 768px) {
 
   /* 1. Algemene fix voor scrollen en achtergrond */
@@ -1039,12 +1036,12 @@ audio {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* 2. Startscherm knoppen: compacter en 2 naast elkaar */
+  /* 2. Startscherm knoppen */
   .main-container {
     justify-content: flex-end !important;
-    padding-bottom: 85px !important; /* Schuift de knoppen mooi naar boven */
+    padding-bottom: 85px !important;
   }
-  }
+  
   .nav-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -1052,8 +1049,9 @@ audio {
     gap: 12px !important;
     padding: 0 15px;
   }
+  
   .vibe-button {
-    width: 45% !important; /* Zet knoppen strak in 2 kolommen */
+    width: 45% !important; /* Dit geldt nu écht alleen voor mobiel */
     max-width: none !important;
     margin: 0 !important;
     padding: 10px 8px !important;
@@ -1061,7 +1059,7 @@ audio {
     border-width: 1px !important;
   }
 
-/* 3. De Lore Box: Veel kleiner maken voor zichtbaarheid video */
+  /* 3. De Lore Box */
   .lore-scroll-container {
     left: 10% !important;
     width: 80% !important;
@@ -1075,7 +1073,7 @@ audio {
   .lore-text-block h2 { font-size: 16px !important; margin-top: 5px !important; }
   .lore-text-block p { font-size: 12px !important; line-height: 1.4 !important; margin-bottom: 10px !important; }
 
-  /* 4. Buy Room, Token Info & Live Chart: Compacter en gecentreerd */
+  /* 4. Buy Room, Token Info & Live Chart */
   .buy-wrapper, .token-wrapper, .chart-wrapper {
     padding: 110px 0 60px 0 !important; 
     justify-content: flex-start !important; 
@@ -1089,16 +1087,19 @@ audio {
   }
   .buy-header h2, .token-header h2 { font-size: 18px !important; margin-bottom: 5px !important; }
   
-  /* 5. Iframe voor de chart compacter maken */
+  /* 5. Iframe voor de chart */
   .iframe-container {
     height: 380px !important;
   }
 
-  /* 6. Bovenste knoppen verkleinen */
-  .back-button {
+  /* 6. Bovenste knoppen */
+  .top-buttons-container {
     top: 15px !important;
     left: 15px !important;
-    padding: 6px 12px !important;
+    gap: 10px !important; 
+  }
+  .back-button, .music-btn {
+    padding: 6px 10px !important;
     font-size: 11px !important;
     border-width: 1px !important;
   }
@@ -1111,28 +1112,10 @@ audio {
   .gold-button strong { font-size: 12px !important; }
   .gold-subtext { font-size: 8px !important; }
 
-  /* 7. Overige media compacter maken */
+  /* 7. Overige media */
   .audio-card { width: 140px; padding: 10px; }
   .banner-item { width: 180px !important; height: 100px !important; }
   .vc-container { margin-top: 70px; }
   .vc-container h1 { font-size: 20px; }
-}
 
-/* Netjes naast elkaar op mobiel met de juiste tussenruimte */
-  .top-buttons-container {
-    top: 15px !important;
-    left: 15px !important;
-    gap: 10px !important; 
-  }
-  
-  .back-button {
-    padding: 6px 10px !important;
-    font-size: 11px !important;
-    border-width: 1px !important;
-  }
-  
-  .music-btn {
-    padding: 6px 10px !important;
-    font-size: 11px !important;
-    border-width: 1px !important;
-  }
+} /* <-- Dit is het magische sluithaakje dat alles netjes oplost! */

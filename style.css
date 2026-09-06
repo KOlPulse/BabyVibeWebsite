@@ -1008,6 +1008,15 @@ audio {
   100% { box-shadow: 0 0 8px rgba(255, 215, 0, 0.4); }
 }
 
+.video-banner-track, .audio-banner-track {
+  cursor: grab;
+  user-select: none; /* Voorkomt dat tekst/afbeeldingen geselecteerd worden tijdens het slepen */
+}
+
+.video-banner-track:active, .audio-banner-track:active {
+  cursor: grabbing;
+}
+
 /* =========================================
    MOBIELE VERSIE (Alleen voor telefoons)
    ========================================= */

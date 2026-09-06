@@ -75,3 +75,67 @@ window.toggleMusic = function() {
     sessionStorage.setItem('vibePlaying', 'false');
   }
 };
+
+// Functie om banners handmatig te kunnen slepen met muis of vinger
+function enableDragScroll(trackClass) {
+  const track = document.querySelector(trackClass);
+  if (!track) return;
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  // Muis ingedrukt op computer
+  track.addEventListener('mousedown', (e) => {
+    isDown = true;
+    track.style.cursor = 'grabbing';
+    startX = e.pageX - track.offsetLeft;
+    // Pauzeer tijdelijk de automatische animatie zodat je handmatig kunt sturen
+    track.style.animationPlayState = 'paused';
+  });
+
+  track.addEventListener('mouseleave', () => {
+    isDown = false;
+    track.style.cursor = 'grab';
+    track.style.animationPlayState = 'running';
+  });
+
+  track.addEventListener('mouseup', () => {
+    isDown = false;
+    track.style.cursor = 'grab';
+    track.style.animationPlayState = 'running';
+  });
+
+  track.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 2; // Snelheid van het slepen
+    track.scrollLeft -= walk;
+  });
+
+  // Ondersteuning voor aanraken op mobiel (Vinger swipe)
+  track.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - track.offsetLeft;
+    track.style.animationPlayState = 'paused';
+  });
+
+  track.addEventListener('touchend', () => {
+    isDown = false;
+    track.style.animationPlayState = 'running';
+  });
+
+  track.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - track.offsetLeft;
+    const walk = (x - startX) * 2;
+    track.scrollLeft -= walk;
+  });
+}
+
+// Activeer het direct voor de video-banner en de audio-banner zodra de pagina laadt
+window.addEventListener('DOMContentLoaded', () => {
+  enableDragScroll('.video-banner-track');
+  enableDragScroll('.audio-banner-track');
+});

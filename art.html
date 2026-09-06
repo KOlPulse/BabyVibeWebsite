@@ -12,8 +12,17 @@
   <source src="art.mp4" type="video/mp4">
   Jouw browser ondersteunt geen video.
 </video>
-  <!-- Terugknop naar de hoofdpagina -->
-  <a href="index.html" class="back-button">← Back to Home</a>
+ <!-- Bovenste knoppen container -->
+  <div class="top-buttons-container">
+    <a href="index.html" class="back-button">← Back to Homepage</a>
+    
+    <div class="music-floater">
+      <button class="music-btn" onclick="toggleMusic()">
+        🎵 Let's Vibe: <span id="musicState">▶ Play</span>
+      </button>
+      <audio id="vibeAudio" preload="auto"></audio>
+    </div>
+  </div>
 
   <!-- De doorlopende videobanner onderaan -->
   <div class="video-banner-container">
@@ -87,16 +96,7 @@
 
   </script>
 
-<!-- Zwevende Muziekspeler -->
-<div class="music-floater">
-  <button class="music-btn" onclick="toggleMusic()">
-    🎵 Let's Vibe: <span id="musicState">▶ Play</span>
-  </button>
-  <audio id="vibeAudio" preload="auto"></audio>
-</div>
 
-<!-- Koppel het slimme geheugen -->
-<script src="music.js"></script>
 
 </body>
 </html>

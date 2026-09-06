@@ -947,12 +947,27 @@ audio {
   text-shadow: 0 0 15px #ffd700;
 }
 
-/* --- ZWEVENDE MUZIEKSPELER (Naast Back to Homepage) --- */
-.music-floater {
+/* --- CONTAINER VOOR LINKSE KNOPPEN (Desktop) --- */
+.top-buttons-container {
   position: fixed;
-  top: 25px; /* Exact op dezelfde hoogte als de terugknop */
-  left: 175px; /* Zet hem automatisch rechts naast de terugknop */
+  top: 25px;
+  left: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Nette vaste ruimte tussen terugknop en muziekknop */
   z-index: 200;
+}
+
+.top-buttons-container .back-button {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+.music-floater {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
 }
 
 .music-btn {
@@ -1083,13 +1098,21 @@ audio {
   .vc-container h1 { font-size: 20px; }
 }
 
-/* Zet de muziekknop op mobiel ook linksboven */
-  .music-floater {
+/* Netjes naast elkaar op mobiel met de juiste tussenruimte */
+  .top-buttons-container {
     top: 15px !important;
-    left: 140px !important;
+    left: 15px !important;
+    gap: 10px !important; 
   }
+  
+  .back-button {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    border-width: 1px !important;
+  }
+  
   .music-btn {
-    padding: 6px 12px !important;
+    padding: 6px 10px !important;
     font-size: 11px !important;
     border-width: 1px !important;
   }

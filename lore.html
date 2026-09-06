@@ -14,8 +14,16 @@
     Jouw browser ondersteunt geen video achtergronden.
   </video>
 
-  <!-- Vaste Terugknop naar de homepage -->
+ <!-- Terugknop naar de homepage -->
   <a href="index.html" class="back-button">← Back to Homepage</a>
+
+  <!-- Zwevende Muziekspeler -->
+  <div class="music-floater">
+    <button class="music-btn" onclick="toggleMusic()">
+      🎵 Let's Vibe: <span id="musicState">▶ Play</span>
+    </button>
+    <audio id="vibeAudio" preload="auto"></audio>
+  </div>
 
   <!-- Container voor de langzaam rollende lap tekst links -->
   <div class="lore-scroll-container">
@@ -49,16 +57,7 @@
     </div>
   </div>
 
-<!-- Zwevende Muziekspeler -->
-<div class="music-floater">
-  <button class="music-btn" onclick="toggleMusic()">
-    🎵 Let's Vibe: <span id="musicState">▶ Play</span>
-  </button>
-  <audio id="vibeAudio" preload="auto"></audio>
-</div>
 
-<!-- Koppel het slimme geheugen -->
-<script src="music.js"></script>
 
 </body>
 </html>

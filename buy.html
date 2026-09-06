@@ -17,6 +17,14 @@
   <!-- Terugknop naar de homepage -->
   <a href="index.html" class="back-button">← Back to Homepage</a>
 
+  <!-- Zwevende Muziekspeler -->
+  <div class="music-floater">
+    <button class="music-btn" onclick="toggleMusic()">
+      🎵 Let's Vibe: <span id="musicState">▶ Play</span>
+    </button>
+    <audio id="vibeAudio" preload="auto"></audio>
+  </div>
+
   <!-- De hoofdcontainer die alles rechts uitlijnt -->
   <div class="buy-wrapper">
     
@@ -94,16 +102,7 @@
   }
 </script>
 
-<!-- Zwevende Muziekspeler -->
-<div class="music-floater">
-  <button class="music-btn" onclick="toggleMusic()">
-    🎵 Let's Vibe: <span id="musicState">▶ Play</span>
-  </button>
-  <audio id="vibeAudio" preload="auto"></audio>
-</div>
 
-<!-- Koppel het slimme geheugen -->
-<script src="music.js"></script>
 
 </body>
 </html>

@@ -947,26 +947,26 @@ audio {
   text-shadow: 0 0 15px #ffd700;
 }
 
-/* --- ZWEVENDE MUZIEKSPELER --- */
+/* --- ZWEVENDE MUZIEKSPELER (PREMIUM GOUD) --- */
 .music-floater {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 9999; /* Zorgt dat hij altijd overal bovenop ligt */
+  top: 85px; /* Netjes onder de Back to Homepage knop */
+  left: 25px; /* Verplaatst naar links */
+  z-index: 9999;
 }
 
 .music-btn {
-  background: rgba(10, 10, 15, 0.9);
+  background: rgba(10, 10, 15, 0.95);
   backdrop-filter: blur(10px);
   border: 2px solid #ffd700;
   color: #ffd700;
   font-family: Arial, sans-serif;
   font-weight: bold;
-  font-size: 14px;
-  padding: 10px 20px;
+  font-size: 16px; /* Groter en beter leesbaar */
+  padding: 12px 25px; /* Maakt de knop veel dikker */
   border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.1);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;

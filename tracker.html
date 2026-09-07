@@ -7,36 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <style>
-   /* 1. De bodem is zwart (tegen flitsen) */
-        html {
-            background-color: #000 !important;
-        }
-
-        /* 2. De body is 100% transparant */
-        body.tracker-body {
-            background: transparent !important;
-            background-color: transparent !important;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            color: #fff;
-            font-family: sans-serif;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* 3. Video naar gelaagdheid 0 (vóór de zwarte bodem) */
-        .page-bg-video {
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            width: 100vw !important;
-            height: 100vh !important;
-            object-fit: cover !important;
-            z-index: 0 !important; 
-        }
-
-        /* 4. Content naar gelaagdheid 10 (bovenop de video) */
+        /* Desktop Layout: Verplaats de box naar rechts */
         .tracker-wrapper {
             justify-content: flex-end !important;
             align-items: flex-start !important;
@@ -45,7 +16,7 @@
             min-height: 100vh;
             box-sizing: border-box;
             position: relative;
-            z-index: 10 !important; 
+            z-index: 10;
         }
         
         .tracker-box {
@@ -112,12 +83,7 @@
             box-shadow: 0 0 25px rgba(0, 255, 136, 0.6);
         }
 
-        /* Zorg dat de terug- en muziekknop ook boven de video blijven */
-        .top-buttons-container {
-            position: fixed;
-            z-index: 20 !important;
-        }
-
+        /* Mobiele Layout: Forceer de box weer naar het midden */
         @media (max-width: 768px) {
             .tracker-wrapper {
                 justify-content: center !important;
@@ -130,14 +96,12 @@
         }
     </style>
 </head>
+<body class="token-body">
 
-<!-- 2. Hier gebruiken we de nieuwe transparante class -->
-<body class="tracker-body">
-
-   <!-- Achtergrondvideo met absolute verwijzing -->
-    <video autoplay muted loop playsinline style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 0 !important;">
-        <source src="./appvideo.mp4" type="video/mp4">
+    <!-- Exact dezelfde structuur als je andere werkende pagina's -->
+    <video autoplay muted loop playsinline class="page-bg-video">
         <source src="appvideo.mp4" type="video/mp4">
+        Jouw browser ondersteunt geen video.
     </video>
 
     <div class="top-buttons-container">

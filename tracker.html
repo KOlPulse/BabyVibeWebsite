@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <style>
-        /* 1. We maken een schone, 100% transparante body voor de tracker */
+   /* 1. Maak de absolute bodem van de browser ZWART (voorkomt wit scherm) */
+        html {
+            background-color: #000 !important;
+        }
+
+        /* 2. Maak de body transparant zodat de video zichtbaar is */
         body.tracker-body {
             background: transparent !important;
             background-color: transparent !important;
@@ -20,6 +25,17 @@
             -webkit-overflow-scrolling: touch;
         }
 
+        /* 3. Trek de video iets naar voren (van -9999 naar -1) zodat hij niet verdwijnt */
+        .page-bg-video {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: cover !important;
+            z-index: -1 !important; 
+        }
+
         /* Desktop Layout: Verplaats de box naar rechts */
         .tracker-wrapper {
             justify-content: flex-end !important;
@@ -28,6 +44,8 @@
             display: flex;
             min-height: 100vh;
             box-sizing: border-box;
+            position: relative;
+            z-index: 10; /* Zorgt dat de box altijd vóór de video staat */
         }
         
         .tracker-box {

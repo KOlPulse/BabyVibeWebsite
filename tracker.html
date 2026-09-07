@@ -94,9 +94,14 @@
                 <h1 id="totalValue" class="neon-text" style="margin: 0; font-size: 28px;">$0.00</h1>
             </div>
 
-            <button id="installAppBtn" class="neon-btn" style="margin-top: 15px;">
+            <!-- Slimme Installatie Sectie -->
+            <button id="installAppBtn" class="neon-btn" style="display: none; margin-top: 15px;">
                 INSTALL AS APP
             </button>
+            <p id="iosInstallText" style="color: #888; font-size: 11px; text-align: center; margin-top: 15px; line-height: 1.4;">
+                💡 <strong>Toevoegen aan telefoon?</strong><br>
+                Gebruik de 'Deel' knop in je browser menu en kies <em>'Zet op beginscherm'</em>.
+            </p>
         </div>
     </div>
 
@@ -114,19 +119,24 @@
 
         let deferredPrompt;
         const installBtn = document.getElementById('installAppBtn');
+        const iosText = document.getElementById('iosInstallText');
 
+        // Laat de knop ALLEEN zien als Android de 1-klik goedkeurt
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
+            installBtn.style.display = 'flex';
+            iosText.style.display = 'none'; // Verberg de instructietekst
         });
 
         installBtn.addEventListener('click', async () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    installBtn.style.display = 'none'; // Verberg na succes
+                }
                 deferredPrompt = null;
-            } else {
-                alert("Apparaat blokkeert de directe knop. Gebruik de 'Deel' knop in je browser (Safari/Chrome) en kies 'Zet op beginscherm' om de app te installeren!");
             }
         });
 

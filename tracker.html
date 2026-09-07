@@ -7,13 +7,37 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <style>
-        /* Desktop Layout: Verplaats de box naar rechts */
+        /* 1. Dwing de HTML en Body naar transparant zodat de video zichtbaar is */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent !important;
+            background-color: #000 !important; /* Zwarte achtergrond als fallback achter de video */
+            color: #fff;
+            font-family: sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* 2. Zorg dat de achtergrondvideo altijd strak over het scherm blijft liggen */
+        .page-bg-video {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: cover !important;
+            z-index: -999 !important;
+        }
+
+        /* 3. Desktop Layout: Verplaats de tracker box naar rechts */
         .tracker-wrapper {
+            display: flex;
             justify-content: flex-end !important;
             align-items: flex-start !important;
-            padding: 140px 50px 50px 20px !important; 
-            display: flex;
             min-height: 100vh;
+            padding: 140px 50px 50px 20px !important; 
             box-sizing: border-box;
             position: relative;
             z-index: 10;
@@ -96,12 +120,12 @@
         }
     </style>
 </head>
-<body class="token-body">
+<body>
 
-    <!-- Exact dezelfde structuur als je andere werkende pagina's -->
+    <!-- Achtergrondvideo exact zoals op lore.html -->
     <video autoplay muted loop playsinline class="page-bg-video">
         <source src="appvideo.mp4" type="video/mp4">
-        Jouw browser ondersteunt geen video.
+        Jouw browser ondersteunt geen video achtergronden.
     </video>
 
     <div class="top-buttons-container">

@@ -7,20 +7,25 @@
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
   <style>
-    /* Fix voor de overlappende knoppen bovenaan op mobiel */
+    /* Keiharde fix voor de overlappende knoppen bovenaan op mobiel */
     @media (max-width: 768px) {
         .top-buttons-container {
-            top: 10px !important;
-            left: 0 !important;
-            width: 100% !important;
-            justify-content: center !important;
+            top: 15px !important;
+            left: 15px !important;
+            width: calc(100% - 30px) !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
             gap: 10px !important;
+            justify-content: flex-start !important;
         }
         .top-buttons-container .back-button, 
         .top-buttons-container .music-btn {
             font-size: 11px !important;
             padding: 8px 12px !important;
+            margin: 0 !important;
             white-space: nowrap !important;
+            flex: 0 1 auto !important;
+            position: relative !important;
         }
     }
   </style>
@@ -76,16 +81,15 @@
     </div>
   </div>
 
-  <!-- Engelse Pop-up Modal met extra In-App Browser instructie -->
   <div id="installModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 1000; justify-content: center; align-items: center;">
     <div style="background: rgba(10, 10, 15, 0.95); backdrop-filter: blur(15px); border: 2px solid #00ff88; border-radius: 20px; padding: 40px 20px; max-width: 350px; width: 90%; color: #fff; box-shadow: 0 0 30px rgba(0, 255, 136, 0.4); position: relative; text-align: center;">
       <span id="closeInstallModal" style="position: absolute; top: 10px; right: 20px; color: #00ff88; font-size: 35px; font-weight: bold; cursor: pointer;">&times;</span>
       <h2 style="color: #00ff88; font-size: 20px; margin-bottom: 15px; margin-top: 5px;">Install BabyVibe</h2>
       
-      <p style="font-size: 13px; color: #ff5555; margin-bottom: 15px; font-weight: bold; border: 1px solid #ff5555; padding: 8px; border-radius: 8px;">Important: If you are using Telegram or X, tap the menu and select "Open in System Browser" (Safari/Chrome) first!</p>
+      <p style="font-size: 13px; color: #ff5555; margin-bottom: 15px; font-weight: bold; border: 1px solid #ff5555; padding: 8px; border-radius: 8px;">Important: If you are using Telegram or X, tap the menu and select "Open in Chrome/Safari" first!</p>
       
-      <p style="font-size: 14px; color: #ddd; margin-bottom: 20px; line-height: 1.5;">Your device requires a manual installation:</p>
-      <p style="font-size: 15px; font-weight: bold; margin-bottom: 10px;">1. Tap the Share icon</p>
+      <p style="font-size: 14px; color: #ddd; margin-bottom: 20px; line-height: 1.5;">Your browser requires a manual installation:</p>
+      <p style="font-size: 15px; font-weight: bold; margin-bottom: 10px;">1. Tap the Share or Menu icon</p>
       <p style="font-size: 15px; font-weight: bold;">2. Select: <span style="background: rgba(0,255,136,0.1); padding: 5px 8px; border: 1px solid #00ff88; border-radius: 8px; display: inline-block; margin-top: 8px;">Add to Home Screen 📱</span></p>
     </div>
   </div>

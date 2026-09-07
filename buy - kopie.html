@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$BabyVibe - Buy Room</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="buy-body">
+
+  <!-- Achtergrondvideo -->
+  <video autoplay muted loop playsinline class="page-bg-video">
+    <source src="buyroom.mp4" type="video/mp4">
+    Jouw browser ondersteunt geen video.
+  </video>
+
+<!-- Bovenste knoppen container -->
+<div class="top-buttons-container">
+  <a href="index.html" class="back-button">← Back to Home</a>
+  
+  <button class="music-btn" onclick="toggleMusic()">
+    🎵 Let's Vibe: <span id="musicState">▶ Play</span>
+  </button>
+  <audio id="vibeAudio" preload="auto"></audio>
+</div>
+
+  <!-- De hoofdcontainer die alles rechts uitlijnt -->
+  <div class="buy-wrapper">
+    
+    <!-- De glazen box -->
+    <div class="buy-box">
+      
+      <!-- De header boven de Jupiter terminal -->
+      <div class="buy-header">
+        <h2>Buy $VIBECOIN</h2>
+        <p>Swap SOL for $VIBECOIN instantly</p>
+        
+        <!-- Hier staat je How to Buy knop perfect in het midden van de box -->
+        <button id="howToBuyBtn" class="vibe-button how-to-buy-btn">How to Buy ❓</button>
+      </div>
+
+      <!-- Hieronder begint je id="jupiter-terminal" div... -->
+      
+      <!-- Hier laadt de Jupiter Swap Terminal in -->
+      <div id="jupiter-terminal"></div>
+    </div>
+  </div>
+
+<!-- 1. Eerst de instellingen laden -->
+<script>
+  function initJupiter() {
+    if (window.Jupiter) {
+      window.Jupiter.init({
+        displayMode: "integrated",
+        integratedTargetId: "jupiter-terminal",
+        endpoint: "https://rpc.ankr.com/solana",
+        strictTokenList: false,
+        formProps: {
+          initialOutputMint: "54g2GnhV2mcheYD7Rvdt6MWniLdUsXQKeVNz5KZhdoge",
+          initialInputMint: "So11111111111111111111111111111111111111112",
+        },
+      });
+    }
+  }
+</script>
+
+<!-- 2. Daarna pas het externe script inladen en starten -->
+<script src="https://terminal.jup.ag/main-v3.js" onload="initJupiter()"></script>
+    
+<!-- De onzichtbare Pop-up Modal -->
+<div id="howToBuyModal" class="modal">
+  <div class="modal-content text-modal">
+    <span class="close-text-modal">&times;</span>
+    <h2>How to Buy $VIBECOIN</h2>
+    <ul>
+      <li><strong>Step 1:</strong> Download the <a href="https://phantom.app/" target="_blank">Phantom Wallet</a> extension for your browser or mobile device.</li>
+      <li><strong>Step 2:</strong> Buy Solana (SOL) on an exchange (like Binance or Coinbase) and send it to your Phantom wallet address.</li>
+      <li><strong>Step 3:</strong> Click 'Connect Wallet' in the Jupiter widget on this page and select Phantom.</li>
+      <li><strong>Step 4:</strong> Enter the amount of SOL you want to swap for our token.</li>
+      <li><strong>Step 5:</strong> Confirm the transaction in your wallet. Welcome to the Vibe!</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Het script dat de knop laat werken -->
+<script>
+  const modal = document.getElementById("howToBuyModal");
+  const btn = document.getElementById("howToBuyBtn");
+  const span = document.getElementsByClassName("close-text-modal")[0];
+
+  btn.onclick = function() {
+    modal.style.display = "flex";
+  }
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+<script src="music.js"></script>
+
+</body>
+</html>

@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <style>
-   /* 1. Maak de absolute bodem van de browser ZWART (voorkomt wit scherm) */
+   /* 1. De bodem is zwart (tegen flitsen) */
         html {
             background-color: #000 !important;
         }
 
-        /* 2. Maak de body transparant zodat de video zichtbaar is */
+        /* 2. De body is 100% transparant */
         body.tracker-body {
             background: transparent !important;
             background-color: transparent !important;
@@ -25,7 +25,7 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        /* 3. Trek de video iets naar voren (van -9999 naar -1) zodat hij niet verdwijnt */
+        /* 3. Video naar gelaagdheid 0 (vóór de zwarte bodem) */
         .page-bg-video {
             position: fixed !important;
             top: 0;
@@ -33,10 +33,10 @@
             width: 100vw !important;
             height: 100vh !important;
             object-fit: cover !important;
-            z-index: -1 !important; 
+            z-index: 0 !important; 
         }
 
-        /* Desktop Layout: Verplaats de box naar rechts */
+        /* 4. Content naar gelaagdheid 10 (bovenop de video) */
         .tracker-wrapper {
             justify-content: flex-end !important;
             align-items: flex-start !important;
@@ -45,7 +45,7 @@
             min-height: 100vh;
             box-sizing: border-box;
             position: relative;
-            z-index: 10; /* Zorgt dat de box altijd vóór de video staat */
+            z-index: 10 !important; 
         }
         
         .tracker-box {
@@ -112,7 +112,12 @@
             box-shadow: 0 0 25px rgba(0, 255, 136, 0.6);
         }
 
-        /* Mobiele Layout: Forceer de box weer naar het midden */
+        /* Zorg dat de terug- en muziekknop ook boven de video blijven */
+        .top-buttons-container {
+            position: fixed;
+            z-index: 20 !important;
+        }
+
         @media (max-width: 768px) {
             .tracker-wrapper {
                 justify-content: center !important;

@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <style>
-        /* Exact dezelfde desktop uitlijning als de Buy Room (rechts) */
+        /* Los de .buy-body achtergrondproblematiek op voor deze pagina */
+        body.buy-body {
+            background: transparent !important;
+            background-color: #000 !important;
+        }
+
+        /* Desktop Layout: Verplaats de tracker box naar rechts */
         .tracker-wrapper {
             display: flex;
             justify-content: flex-end !important;
@@ -15,6 +21,8 @@
             min-height: 100vh;
             padding: 140px 40px 50px 20px !important;
             box-sizing: border-box;
+            position: relative;
+            z-index: 10;
         }
         
         .tracker-box {
@@ -97,7 +105,7 @@
 </head>
 <body class="buy-body">
 
-    <!-- Achtergrondvideo identiek aan buy.html -->
+    <!-- Achtergrondvideo -->
     <video autoplay muted loop playsinline class="page-bg-video">
         <source src="appvideo.mp4" type="video/mp4">
         Jouw browser ondersteunt geen video.

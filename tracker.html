@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
   <style>
-    /* Keiharde fix voor de overlappende knoppen bovenaan op mobiel */
+    /* Fix voor de bovenste knoppen op mobiel */
     @media (max-width: 768px) {
         .top-buttons-container {
             top: 15px !important;
@@ -27,6 +27,33 @@
             flex: 0 1 auto !important;
             position: relative !important;
         }
+    }
+
+    /* Nieuwe gouden knop speciaal voor de tracker om mobiele css conflicten te voorkomen */
+    .tracker-gold-btn {
+        width: 100%;
+        margin-top: 15px;
+        padding: 12px;
+        font-size: 14px;
+        cursor: pointer;
+        background: rgba(20, 0, 40, 0.7);
+        border: 2px solid #ffd700;
+        color: #ffd700;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        border-radius: 12px;
+        box-shadow: 0 0 10px #ffd700, 0 0 20px rgba(255, 215, 0, 0.5);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+    .tracker-gold-btn:hover {
+        background: rgba(255, 215, 0, 0.15);
+        box-shadow: 0 0 15px #ffd700, 0 0 30px #ffd700, 0 0 50px rgba(255, 215, 0, 0.8);
+        transform: scale(1.02);
     }
   </style>
 </head>
@@ -66,7 +93,7 @@
           <label for="tokenAmount" style="color: #aaa; margin-bottom: 5px; display: block; font-size: 12px;">Enter Your Token Amount:</label>
           <input type="number" id="tokenAmount" placeholder="0" oninput="calculateTotal()" style="width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.8); border: 2px solid #00ff88; border-radius: 12px; color: #fff; font-size: 16px; outline: none; box-sizing: border-box; text-align: center; font-weight: bold;">
           
-          <button onclick="calculateTotal()" class="vibe-button" style="width: 100%; margin-top: 10px; padding: 12px; font-size: 14px; cursor: pointer;">CALCULATE VALUE</button>
+          <button onclick="calculateTotal()" class="tracker-gold-btn">CALCULATE VALUE</button>
       </div>
 
       <div style="background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 12px; padding: 12px; margin-top: 15px;">
@@ -74,7 +101,7 @@
           <h1 id="totalValue" style="margin: 0; color: #00ff88; text-shadow: 0 0 10px rgba(0, 255, 136, 0.6); font-size: 26px;">$0.00</h1>
       </div>
 
-      <button id="installAppBtn" class="vibe-button" style="width: 100%; margin-top: 15px; padding: 12px; font-size: 14px; cursor: pointer; display: flex; justify-content: center; align-items: center;">
+      <button id="installAppBtn" class="tracker-gold-btn">
           INSTALL AS APP
       </button>
 

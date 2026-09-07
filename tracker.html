@@ -7,9 +7,19 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <style>
+        /* Desktop Layout: Verplaats de box naar rechts */
+        .tracker-wrapper {
+            justify-content: flex-end !important;
+            align-items: flex-start !important;
+            padding: 140px 50px 50px 20px !important; /* 50px marge aan de rechterkant */
+        }
+        
         .tracker-box {
             padding: 15px 20px !important; 
+            width: 100%;
+            max-width: 420px !important; /* Houdt de breedte perfect in verhouding */
         }
+        
         .tracker-logo {
             width: 70px !important;
             margin-bottom: 5px !important;
@@ -54,13 +64,25 @@
             color: #000;
             box-shadow: 0 0 25px rgba(0, 255, 136, 0.6);
         }
+
+        /* Mobiele Layout: Forceer de box weer naar het midden */
+        @media (max-width: 768px) {
+            .tracker-wrapper {
+                justify-content: center !important;
+                padding: 110px 0 60px 0 !important;
+            }
+            .tracker-box {
+                margin: 0 auto !important;
+                width: 85% !important;
+            }
+        }
     </style>
 </head>
 <body class="buy-body">
 
     <!-- Achtergrondvideo -->
     <video autoplay muted loop playsinline class="page-bg-video">
-        <source src="appvideo.mp4" type="video/mp4">
+        <source src="JOUW_VIDEO.mp4" type="video/mp4">
     </video>
 
     <div class="top-buttons-container">

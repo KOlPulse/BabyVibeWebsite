@@ -6,14 +6,30 @@
     <title>BabyVibe Portfolio Tracker</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
-    <style>
-        /* Los de .buy-body achtergrondproblematiek op voor deze pagina */
+ <style>
+        /* Zorg dat de achtergrond transparant is en de bodem zwart */
         body.buy-body {
             background: transparent !important;
             background-color: #000 !important;
         }
 
-        /* Desktop Layout: Verplaats de tracker box naar rechts */
+        /* Forceer de video om direct zichtbaar te zijn op laag 1 */
+        .page-bg-video {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: cover !important;
+            z-index: 1 !important;
+        }
+
+        /* Zet alle inhoud van de tracker op laag 10 (bovenop de video) */
+        .top-buttons-container {
+            position: fixed !important;
+            z-index: 20 !important;
+        }
+
         .tracker-wrapper {
             display: flex;
             justify-content: flex-end !important;
@@ -22,7 +38,7 @@
             padding: 140px 40px 50px 20px !important;
             box-sizing: border-box;
             position: relative;
-            z-index: 10;
+            z-index: 10 !important;
         }
         
         .tracker-box {
@@ -89,7 +105,6 @@
             box-shadow: 0 0 25px rgba(0, 255, 136, 0.6);
         }
 
-        /* Mobiele Layout: Centraal en passend op het scherm */
         @media (max-width: 768px) {
             .tracker-wrapper {
                 padding: 110px 0 60px 0 !important;
